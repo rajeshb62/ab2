@@ -4,6 +4,7 @@ Create an email based aztec account. that one can sign into using an email addre
 
 
 ## Challenge Selection
+Read [this article](https://aztec.network/blog/unlocking-the-future-of-privacy-exploring-identity-and-social-use-cases-in-alpha-build-2-with-100k-in-prizes) that announces Alpha Build 2 to learn more about the challenges and get ideas on what to build!
 
 - [x] ZKEmail Guardian
 - [ ] Social Cipher
