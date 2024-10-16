@@ -1,30 +1,29 @@
-# {Project Name}
+# Email Based Account
 
-Enter the name of your project above and provide a brief description of your project.
+Create an email based aztec account. that one can sign into using an email address (gmail). and that can sign transactions from that account using apple face ID. 
 
-Consider including:
-
-- How does your project leverage Aztec's unique features? (programmable cryptography, private/public state, etc.)
-- What is the potential real-world impact of your project?
 
 ## Challenge Selection
 
-- [ ] ZKEmail Guardian
+- [x] ZKEmail Guardian
 - [ ] Social Cipher
 
 **Note**: You can change which challenges you've selected during the competition if you'd like. You are not bound by your choices or descriptions entered during the one week check-in.
 
 ## Team information
 
-Who are the authors of your project?
+Rajesh 
 
 ## Technical Approach
 
-- High level outline of main components
-- Any specific Aztec tools or features you used
+- create proof that email is from a gmail address using zkemail.nr 
+- use proof verification for authenticating aztec account contract (??)
+Inspirations: 
+https://zkemail.shieldswap.org/
+https://docs.aztec.network/guides/developer_guides/smart_contracts/writing_contracts/authwit#usage
 
 ## Expected Outcomes
-What do you hope to achieve by the end of the challenge(s)?
+A wallet app (previously created in alpha build 1) that uses email ownership proof to create aztec account
 
 ## Lessons Learned (For Submission)
 

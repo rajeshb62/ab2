@@ -1,0 +1,15 @@
+run the rsa algorithm. generate proof that signature from same authority as rsa public key. verify it. 
+
+given rsa public key of a email service provider, generate proof that email ID is from service provider
+
+is there a (what is the) rsa signature for a given email ID? if yes, then prove that I am owner of email ID. 
+
+Explaining this blogpost Oleh. https://medium.com/@oleh.blockchain/zkemail-account-in-noir-aztec-part-1-26076dd1f3b8
+emails have a mechanism for ensuring that receiver can authenticate the email from the sender.
+using encryption. below ways
+1) email comes from service provider of sender. the service provider has a public key that is well known and can only be signed by service provider's private key. It uses RSA algorithm
+2) every email has a header. and that header is signed by service provider confirming the authenticity of email. That signature can only be carried out by a party whose public key is known- this can be verified. thus verifying authenticity of email.
+The zkemail library provides a method. 
+
+
+detailed day to day:
