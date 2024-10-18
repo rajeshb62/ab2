@@ -16,9 +16,9 @@ Read [this article](https://aztec.network/blog/unlocking-the-future-of-privacy-e
 Rajesh 
 
 ## Technical Approach
+### Questions
+- can i have a load_account (or get_account) function that retrieves from pxe the account object using relevant email related attributes? load_account(pxe, email_header, email_signature)? can i have a custom account contracts that does this for me?
 
-- create proof that email is from a gmail address using zkemail.nr 
-- use proof verification for authenticating aztec account contract (??)
 Inspirations: 
 https://zkemail.shieldswap.org/
 https://docs.aztec.network/guides/developer_guides/smart_contracts/writing_contracts/authwit#usage
