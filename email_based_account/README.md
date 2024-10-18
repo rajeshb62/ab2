@@ -17,11 +17,12 @@ Rajesh
 
 ## Technical Approach
 ### Questions
-- can i have a load_account (or get_account) function that retrieves from pxe the account object using relevant email related attributes? load_account(pxe, email_header, email_signature)? can i have a custom account contracts that does this for me?
+- ~~can i have a load_account (or get_account) function that retrieves from pxe the account object using relevant email related attributes? load_account(pxe, email_header, email_signature)? can i have a custom account contracts that does this for me?~~ can an email address be hashed into field element type Fr? then it can be used to create a schnorr account using the regular getAccount(..) method
 
 Inspirations: 
 https://zkemail.shieldswap.org/
 https://docs.aztec.network/guides/developer_guides/smart_contracts/writing_contracts/authwit#usage
+Inspiration codebases: Loads account based on Face ID of user: loads account based on password: https://github.com/skaunov/aabch1_23
 
 ## Expected Outcomes
 A wallet app (previously created in alpha build 1) that uses email ownership proof to create aztec account
