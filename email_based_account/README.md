@@ -16,9 +16,12 @@ Read [this article](https://aztec.network/blog/unlocking-the-future-of-privacy-e
 Rajesh 
 
 ## Technical Approach
-### Questions
-- ~~can i have a load_account (or get_account) function that retrieves from pxe the account object using relevant email related attributes? load_account(pxe, email_header, email_signature)? can i have a custom account contracts that does this for me?~~ can an email address be hashed into field element type Fr? then it can be used to create a schnorr account using the regular getAccount(..) method
-
+### Questions/ approach
+- create an account for an email address abc@xyz.com based on .eml file:
+    - verify header is valid using dkim signature verification
+    - check sender is 'abc@xyz.com'
+    - (additional check) check if subject contains a specific random string shown in UI
+- hash email into pedersen 2 hash (?), convert into field element type Fr and use it as encryption key in getSchnorrAccount(..) function and show the accoung wallet in UI (user can sign tx from this wallet as long as they know the signing key)
 Inspirations: 
 https://zkemail.shieldswap.org/
 https://docs.aztec.network/guides/developer_guides/smart_contracts/writing_contracts/authwit#usage
