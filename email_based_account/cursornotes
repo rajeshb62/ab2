@@ -12,4 +12,56 @@ using encryption. below ways
 The zkemail library provides a method. 
 
 
-detailed day to day:
+bug: brillig function one. 
+how noir_rsa example uses the verify_sha256_pkcs1v15 function. 
+fn main(bn: [[Field; 18]; 2], hash: [u8; 32], signature: BN2048) {
+    let rsa: RSA2048 = RSA {};
+
+    let BNInstance: BNInst2048 = BigNumInstance::new(bn[0], bn[1]);
+
+    assert(rsa.verify_sha256_pkcs1v15(BNInstance, hash, signature, 65537));
+}
+
+how olehblog test uses it
+`
+fn assert_verify_email_signature<let HeadersLen: u32, let BodyLen: u32>(
+    headers: [u8; HeadersLen],
+    body: [u8; BodyLen],
+    pubkey_limbs: [Field; PUBKEY_LIMBS_LEN],
+    pubkey_redc_limbs: [Field; PUBKEY_LIMBS_LEN],
+    signature_limbs: [Field; SIGNATURE_LIMBS_LEN]
+) {
+    let signature: BN2048 = BigNum::from_array(signature_limbs);
+    let pubkey: BigNumInstance<18, Params2048> = BigNumInstance::new(pubkey_limbs, pubkey_redc_limbs);
+
+    {
+        // verify that body hash from header matches body
+        let body_hash = std::hash::sha256(body);
+        assert(body_hash == crate::body_hash::body_hash_from_header(headers), "body hash does not match");
+    }
+
+    {
+        // verify header signature
+        let headers_hash = std::hash::sha256(headers);
+        assert(rsa.verify_sha256_pkcs1v15(pubkey, headers_hash, signature, 3), "invalid email signature");
+    }
+}
+
+zkemail.nr library
+verify dkim signature (1024 bit rsa algo or 2048 bit rsa algo)
+takes public key (big num 9 limbs for 1024 bit rsa), email header (again bignum?), header len (u32?) and signature (a bignum)
+returns if header hash (sha256 hash of header) is equal to hash deconstructed from signature using public key and 65537 (or 3)
+
+zkemail.nr why cant i use it???? compile breaks in one folder. works in another folder! aztec-starter compile fails in local
+but works on codespaces.
+
+dkim signature verification.
+why does the RSAPubkey import from zkemail.nr fail?
+
+big picture. email based private account. dkim signature verification needs to work? yes? frontend flow in wallet.
+touch ID for transactions. email id stays private. pedersen hash of email ID idenfies user.
+proof that owner owns account that produced pedersen2 hash is used for account authentication.
+user can see and privately own a stablecoin or eth. they can privately transfer for free
+(wallet service provider pays l1 gas fees). transfer to another email address based private aztec account.
+account recovery and security is a whole another thing. 
+can a different account provider create a different account for you with same email? will they interoperate with yours?
